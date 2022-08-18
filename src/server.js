@@ -1,5 +1,6 @@
 import express from "express";
-import "dotenv/config";
+// import "dotenv/config";
+require("dotenv").config();
 
 import configViewEngine from "./config/viewEngine.js";
 import initWebRoutes from "../src/route/web.js";
