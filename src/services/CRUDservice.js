@@ -43,8 +43,42 @@ const getAllUser = async () => {
     throw new Error(error);
   }
 };
+const getUserById = async (id) => {
+  try {
+    const user = await db.User.findByPk(id, {
+      raw: true,
+    });
+    // console.log(user);
+    return user;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+const updateUserData = async (data, id) => {
+  try {
+    let user = await db.User.findOne({
+      where: { id: id },
+    });
+    console.log(user);
+    user.email = data.email;
+    user.firstName = data.firstName;
+    user.lastName = data.lastName;
+    user.address = data.address;
+    await user.save();
+
+    const allUser = await db.User.findAll({
+      raw: true,
+    });
+    return allUser;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
 module.exports = {
   createNewUser,
   getAllUser,
+  getUserById,
+  updateUserData,
 };
