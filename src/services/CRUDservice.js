@@ -33,6 +33,18 @@ const hashUserPassword = async (password) => {
   }
 };
 
+const getAllUser = async () => {
+  try {
+    const users = await db.User.findAll({
+      raw: true,
+    });
+    return users;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 module.exports = {
   createNewUser,
+  getAllUser,
 };

@@ -23,8 +23,17 @@ const postCRUD = (req, res) => {
   return res.send("tao user thanh cong");
 };
 
+const displayCRUD = async (req, res) => {
+  const data = await CRUDservice.getAllUser();
+  console.log(data);
+  return res.render("displayCRUD.ejs", {
+    data,
+  });
+};
+
 module.exports = {
   getHomePage: getHomePage,
   getCRUD: getCRUD,
   postCRUD,
+  displayCRUD,
 };
