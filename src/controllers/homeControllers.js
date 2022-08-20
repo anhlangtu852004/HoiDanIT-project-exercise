@@ -49,6 +49,12 @@ const putCRUD = async (req, res) => {
   });
 };
 
+const deleteCRUD = async (req, res) => {
+  // const user =
+  await CRUDservice.deleteUserById(req.params.id);
+  return res.send("xoa user thanh cong");
+};
+
 module.exports = {
   getHomePage: getHomePage,
   getCRUD: getCRUD,
@@ -56,4 +62,5 @@ module.exports = {
   displayCRUD,
   getEditCRUD,
   putCRUD,
+  deleteCRUD,
 };

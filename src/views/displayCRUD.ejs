@@ -40,7 +40,14 @@
               >Edit</a
             >
           </td>
-          <td><a class="btn btn-danger" href="#" role="button">Remove</a></td>
+          <td>
+            <a
+              class="btn btn-danger"
+              href="/delete-crud?id=<%= data[i].id %>"
+              role="button"
+              >Remove</a
+            >
+          </td>
         </tr>
         <% } %>
       </tbody>

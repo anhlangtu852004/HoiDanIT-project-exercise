@@ -76,9 +76,20 @@ const updateUserData = async (data, id) => {
   }
 };
 
+const deleteUserById = async (id) => {
+  try {
+    const user = await db.User.findByPk(id);
+    // console.log(user);
+    await user.destroy();
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 module.exports = {
   createNewUser,
   getAllUser,
   getUserById,
   updateUserData,
+  deleteUserById,
 };
